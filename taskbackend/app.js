@@ -27,8 +27,8 @@ app.post('/api/feedback', (req, res) => {
   });
 
   const mailOptions = {
-    from: email,
-    to: 'manojmaridi666@gmail.com',
+      from: 'manojmaridi666@gmail.com',
+      to: email,
     subject: `Feedback from ${name}`,
     text: message,
   };
@@ -88,20 +88,25 @@ const postSchema = new mongoose.Schema({
 
 
 app.post('/api/send-telegram', async (req, res) => {
-    const { message } = req.body;
-    const telegramToken = process.env.TELEGRAM_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
-  
-    try {
-      const response = await axios.post(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-        chat_id: chatId,
-        text: message,
-      });
-      res.status(200).json(response.data);
-    } catch (error) {
-      res.status(500).json({ error: 'Failed to send message to Telegram' });
-    }
-  });
+  const { message } = req.body;  // Destructure the message from the request body
+  const telegramToken = process.env.TELEGRAM_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  console.log({ message });  // For debugging purposes
+
+  try {
+    const response = await axios.post(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+      chat_id: chatId,
+      text: message,  // Send the plain text message
+    });
+    res.status(200).json(response.data);
+    console.log(response.data);  // For debugging purposes
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to send message to Telegram' });
+    console.log('Failed to send message to Telegram');
+  }
+});
+
   
 
 

@@ -34,6 +34,7 @@ const AdminPanel = () => {
         body: JSON.stringify(post),
       });
       await sendTelegramNotification(`New post added: ${title}`);
+       
     }
 
     setTitle('');
