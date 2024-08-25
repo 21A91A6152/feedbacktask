@@ -1,6 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('JohnDoe'); // Simulated username
+ 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    setUsername('JohnDoe'); // Replace with actual username from login
+  };
+
+  // Handle logout
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUsername('');
+  };
   return (
     <nav className="bg-green-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
@@ -21,6 +35,17 @@ const Navbar = () => {
                 <li style={{float:"left"}} className="nav-item  pt-2">
                   <button className="bg-white px-2 py-1 rounded"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </li>
+               
+                {isLoggedIn ? (
+                  <>
+                    <li style={{float:"right"}} className="mx-5">{username}</li>
+                    <li style={{float:"right"}} className="mx-5"><button onClick={handleLogout} className="px-2 py-1 bg-white rounded">Logout <i class="fa-solid fa-right-from-bracket"></i></button></li>
+                  </>
+                ) : (
+                  <li style={{float:"right"}} className="mx-5"><button onClick={handleLogin} className="px-2 py-1 bg-white rounded">Sign In / Log In</button></li>
+                )}
+                 
+
                  
         </ul>
       </div>

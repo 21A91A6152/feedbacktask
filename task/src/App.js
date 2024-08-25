@@ -4,6 +4,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import AdminPanel from './components/AdminPanel';
 import Blog from './components/Blog';
 import Navbar from './Navbar';
+import SignIn from './login';
 import FeedbackForm from './components/Form';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/feedback" element={<FeedbackForm />} />
           <Route path="/" element={<Blog/>}/>
+          <Route path="/login" element={<SignIn/>}/>
            
         </Routes>
       </BrowserRouter>

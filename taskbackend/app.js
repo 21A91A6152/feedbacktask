@@ -115,15 +115,16 @@ app.post('/api/send-telegram', async (req, res) => {
  
 
   mongoose.set('strictQuery', true);
+var uri= "mongodb+srv://manoj:manojmaridi66@cluster0.j10nr.mongodb.net/blogger?retryWrites=true&w=majority&appName=Cluster0"
+mongoose.connect(uri, { useUnifiedTopology: true, tlsAllowInvalidCertificates: true, loggerLevel: 'debug' }, function(err, client) {
+    if (err) {
+        console.error('Connection failed:', err);
+    } else {
+        console.log('Connected successfully');
+         
+    }
+});
 
-  mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => {
-    console.log('Connected to MongoDB');
-  }).catch((err) => {
-    console.error('Failed to connect to MongoDB', err);
-  });
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

@@ -4,7 +4,7 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/posts')
+    fetch('https://feedbacktask.onrender.com/api/posts')
       .then((response) => response.json())
       .then((data) => setPosts(data));
   }, []);

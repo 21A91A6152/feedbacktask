@@ -10,7 +10,7 @@ const FeedbackForm = () => {
     const feedback = { name, email, message };
     
     try {
-      const response = await fetch('http://localhost:5000/api/feedback', {
+      const response = await fetch('https://feedbacktask.onrender.com/api/feedback', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
