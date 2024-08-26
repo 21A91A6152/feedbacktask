@@ -21,7 +21,7 @@ function SignIn() {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/logindetailsA', { formdataL });
+            const response = await axios.post('https://feedbacktask.onrender.com/logindetailsA', { formdataL });
             const { msg, email } = response.data;
 
             if (msg === "login successful") {
@@ -54,7 +54,7 @@ function SignIn() {
     const handleSignupSubmit = (e) => {
         e.preventDefault();
         
-        axios.post('http://localhost:5000/adddetailssignup', {formData})
+        axios.post('https://feedbacktask.onrender.com/adddetailssignup', {formData})
             .then((res) => {
                 Swal.fire({
                     title: "Success",

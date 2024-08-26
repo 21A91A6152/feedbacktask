@@ -17,7 +17,7 @@ const AdminPanel = () => {
 
   const fetchPosts = useCallback(() => {
     if (user) {
-      fetch(`http://localhost:5000/api/adminposts?userId=${user}`)
+      fetch(`https://feedbacktask.onrender.com/api/adminposts?userId=${user}`)
         .then((response) => response.json())
         .then((data) => setPosts(data));
     }
@@ -32,14 +32,14 @@ const AdminPanel = () => {
     const post = { title, content, user };
 
     if (editId) {
-      await fetch(`http://localhost:5000/api/posts/${editId}`, {
+      await fetch(`https://feedbacktask.onrender.com/api/posts/${editId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(post),
       });
       setEditId(null);
     } else {
-      await fetch('http://localhost:5000/api/posts', {
+      await fetch('https://feedbacktask.onrender.com/api/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(post),
@@ -59,14 +59,14 @@ const AdminPanel = () => {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/posts/${id}`, {
+    await fetch(`https://feedbacktask.onrender.com/api/posts/${id}`, {
       method: 'DELETE',
     });
     fetchPosts();
   };
 
   const sendTelegramNotification = async (message) => {
-    await fetch('http://localhost:5000/api/send-telegram', {
+    await fetch('https://feedbacktask.onrender.com/api/send-telegram', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),
