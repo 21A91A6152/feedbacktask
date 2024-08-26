@@ -56,7 +56,7 @@ const Navbar = () => {
           </button>
         </div>
           </li>
-          <li className="px-20"><img src={logo} style={{height:"30px"}}></img></li>
+          <li className="px-20"><img src={logo} alt="logo" style={{height:"30px"}}></img></li>
           {isLoggedIn ? (
             <>
               <li className="mx-5">{user}</li>
@@ -77,7 +77,7 @@ const Navbar = () => {
 
         {/* Search bar always visible */}
         <div className="flex items-center md:hidden ">
-          <img src={logo} style={{height:"30px",width:"90px",paddingRight:"5px"}}></img>
+          <img src={logo} alt="logo" style={{height:"30px",width:"90px",paddingRight:"5px"}}></img>
           <input
             style={{width:"120px"}}
             type="text"
