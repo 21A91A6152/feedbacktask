@@ -3,8 +3,8 @@ import './App.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import AdminPanel from './components/AdminPanel';
 import Blog from './components/Blog';
-import Navbar from './Navbar';
-import SignIn from './login';
+import Navbar from './components/Navbar';
+import SignIn from './components/login';
 import FeedbackForm from './components/Form';
 
 function App() {

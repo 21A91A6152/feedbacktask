@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      /* Add your styles here */
+      body {
+        font-family: 'Arial', sans-serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+      }
+      .header {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+      }
+      .content {
+        padding: 20px;
+      }
+      .footer {
+        background-color: #f4f4f4;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+         <img src="./logotw.png" style="width: 250px;"> 
+      </div>
+      <div class="content">
+         <p>Dear  ${req.body.user},</p>
+         <p>We’re excited to see you back on Quick Bloger!</p>
+         <p>🎉 Thank you for logging into your account. We hope you’re enjoying the latest updates and content on our site. If you have any questions or need assistance, feel free to reach out to our support team.🎉</p>
+         <p>Here’s a quick overview of what you can do while you’re here:</p>
+         <ul>
+            <li><span style="font-weight: bold;"> Explore New Posts:</span> Check out our latest articles and updates.</li>
+            <li><span style="font-weight: bold;"> Manage Your Account: </span> Update your profile, check your activity, and customize your preferences.</li>
+            <li><span style="font-weight: bold;">Engage with Content:</span>Leave comments, share posts, and interact with other readers.</li>
+         </ul>
+        <p>If you encountered any issues while logging in or if there’s anything we can do to improve your experience, please let us know in feedbackform.</p>
+        <p>Thank you for being a valued member of our community!</p>
+
+        <p>Best regards,</p>
+        <p>The Quick Bloger Team</p>
+        
+      </div>
+
+      <div class="footer">
+        <p>© 2024 manojkumar. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html> 

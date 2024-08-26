@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useCallback} from 'react';
 
 const AdminPanel = () => {
   const [posts, setPosts] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [editId, setEditId] = useState(null);
+  const [user, setUser] = useState(null);
 
-  const fetchPosts = () => {
-    fetch('https://feedbacktask.onrender.com/api/posts')
-      .then((response) => response.json())
-      .then((data) => setPosts(data));
-  };
+  useEffect(() => {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUser(userData);
+    }
+  }, []);
+
+  const fetchPosts = useCallback(() => {
+    if (user) {
+      fetch(`http://localhost:5000/api/adminposts?userId=${user}`)
+        .then((response) => response.json())
+        .then((data) => setPosts(data));
+    }
+  }, [user]);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
-
+  }, [fetchPosts]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const post = { title, content };
+    const post = { title, content, user };
 
     if (editId) {
       await fetch(`http://localhost:5000/api/posts/${editId}`, {
@@ -34,7 +45,6 @@ const AdminPanel = () => {
         body: JSON.stringify(post),
       });
       await sendTelegramNotification(`New post added: ${title}`);
-       
     }
 
     setTitle('');
