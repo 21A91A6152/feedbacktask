@@ -1,5 +1,6 @@
  
 import './App.css';
+import { useState } from 'react';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import AdminPanel from './components/AdminPanel';
 import Blog from './components/Blog';
@@ -8,14 +9,15 @@ import SignIn from './components/login';
 import FeedbackForm from './components/Form';
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState('');
   return (
     <div>
       <BrowserRouter>
-      <Navbar/>
+      <Navbar setSearchQuery={setSearchQuery} />
         <Routes>
-          <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin" element={<AdminPanel searchQuery={searchQuery}/>} />
           <Route path="/feedback" element={<FeedbackForm />} />
-          <Route path="/" element={<Blog/>}/>
+          <Route path="/" element={<Blog searchQuery={searchQuery}/>}/>
           <Route path="/login" element={<SignIn/>}/>
            
         </Routes>

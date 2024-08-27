@@ -125,91 +125,62 @@ function SignIn() {
             )}
 
             {currentView === 'signup' && (
-                <div className="md:col-span-6 p-5">
-                    <h1 className="text-warning text-2xl">Create your Account</h1>
-                    <div className="row mt-1">
-                        <div className="md:col-span-6 sm:col-span-12 p-4">
-                            <div className="flex items-center">
-                                <input
-                                    type="text"
-                                    className="w-full p-2 rounded"
-                                    name="fname"
-                                    placeholder="First name"
-                                    onChange={(e)=>setFormData({...formData,fname:e.target.value})}
-                                />
-                            </div>
-                        </div>
-                        <div className="md:col-span-6 sm:col-span-12 p-4">
-                            <div className="flex items-center">
-                                <input
-                                    type="text"
-                                    className="w-full p-2 rounded"
-                                    name="lname"
-                                    placeholder="Last name"
-                                    onChange={(e)=>setFormData({...formData,lname:e.target.value})}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row mt-1">
-                        <div className="col-span-12 p-4">
-                            <div className="flex items-center">
-                                <input
-                                    type="email"
-                                    className="w-full p-2 rounded"
-                                    id="email"
-                                    placeholder="Email Address"
-                                    name="email"
-                                    onChange={(e)=>setFormData({...formData,email:e.target.value})}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row mt-1">
-                        <div className="col-span-12 p-4">
-                            <div className="flex items-center">
-                                <input
-                                    id="number"
-                                    className="w-full p-2 rounded"
-                                    placeholder="Phone Number"
-                                    name="phone"
-                                    type="text"
-                                    onChange={(e)=>setFormData({...formData,phone:e.target.value})}
-                                />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row mt-1">
-                        <div className="md:col-span-6 sm:col-span-12 p-4">
-                            <div className="flex items-center">
-                                <input
-                                    type="password"
-                                    className="w-full p-2 rounded"
-                                    placeholder="Password"
-                                    name="password"
-                                    onChange={(e)=>setFormData({...formData,password:e.target.value})}
-                                />
-                            </div>
-                        </div>
-                         
-                        
-                    </div>
-
-                    <div className="row mt-1 text-center">
-                        <div className="col-span-12">
-                            <button
-                                className="btn btn-primary w-full"
-                                type="button"
-                                onClick={handleSignupSubmit}
-                            >
-                                Create your account
-                            </button>
-                        </div>
-                    </div>
-                </div>
+               <div className="max-w-md mx-auto bg-white shadow-lg rounded-lg p-6 md:p-10">
+               <h1 className="text-warning text-2xl font-semibold text-center mb-6">
+                   Create Your Account
+               </h1>
+               <div className="space-y-4">
+                   <div className="grid md:grid-cols-2 gap-4">
+                       <input
+                           type="text"
+                           className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           name="fname"
+                           placeholder="First name"
+                           onChange={(e) => setFormData({ ...formData, fname: e.target.value })}
+                       />
+                       <input
+                           type="text"
+                           className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                           name="lname"
+                           placeholder="Last name"
+                           onChange={(e) => setFormData({ ...formData, lname: e.target.value })}
+                       />
+                   </div>
+                   <input
+                       type="email"
+                       className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       id="email"
+                       placeholder="Email Address"
+                       name="email"
+                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                   />
+                   <input
+                       type="text"
+                       className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       id="number"
+                       placeholder="Phone Number"
+                       name="phone"
+                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                   />
+                   <input
+                       type="password"
+                       className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       placeholder="Password"
+                       name="password"
+                       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                   />
+               </div>
+               <div className="mt-6">
+                   <button
+                       className="w-full bg-blue-500 text-white p-3 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                       type="button"
+                       onClick={handleSignupSubmit}
+                   >
+                       Create Your Account
+                   </button>
+               </div>
+           </div>
+           
             )}
 
             {currentView === 'forgot' && (
