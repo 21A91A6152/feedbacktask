@@ -108,19 +108,19 @@ const AdminPanel = ({ searchQuery }) => {
         </button>
       </form>
       {filteredPosts.map((post) => (
-        <div key={post._id} className="mb-8">
+        <div key={post._id} className="mb-8 p-5 transition-transform transform hover:-translate-y-2 hover:shadow-2xl duration-300">
           <h2 className="text-2xl font-bold">{post.title}</h2>
           <p className="text-gray-600">{new Date(post.date).toLocaleDateString()}</p>
           <p className="mt-2">{post.content}</p>
           <button
             onClick={() => handleEdit(post)}
-            className="mr-4 bg-yellow-500 text-white py-1 px-2 rounded"
+            className="mr-4 bg-yellow-500 text-white py-1 px-2 rounded mt-1"
           >
             Edit
           </button>
           <button
             onClick={() => handleDelete(post._id)}
-            className="bg-red-500 text-white py-1 px-2 rounded"
+            className="bg-red-500 text-white py-1 px-2 rounded mt-1"
           >
             Delete
           </button>

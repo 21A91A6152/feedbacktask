@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+ 
 const Blog = ({ searchQuery }) => {
   const [posts, setPosts] = useState([]);
 
@@ -12,6 +13,12 @@ const Blog = ({ searchQuery }) => {
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  const navigate = useNavigate();
+  const Suggest = (user, e) => {
+    e.preventDefault();
+    navigate('/feedback', { state: { user } });
+  };
+  
 
   return (
     <div className="max-w-4xl mx-auto p-4">
@@ -31,9 +38,12 @@ const Blog = ({ searchQuery }) => {
             <button className="text-red-500 hover:text-red-700 focus:outline-none transition-colors duration-300">
               <i className="fa-solid fa-heart"></i> Like
             </button>
+            <button onClick={(e) => Suggest(post.user, e)}>Suggest an edit</button>
+             
           </div>
         </div>
       ))}
+  
     </div>
   );
 };
